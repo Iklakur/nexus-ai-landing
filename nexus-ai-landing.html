@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusAI — Intelligence Evolved</title>
+  <meta name="description" content="NexusAI is a next-generation AI platform built for developers, enterprises, and visionaries." />
+
+  <!-- Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
+
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="nav-header" id="nav">
+    <div class="nav-inner">
+      <!-- SVG Logo -->
+      <a href="#" class="nav-logo" aria-label="NexusAI Home">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <polygon points="16,2 30,10 30,22 16,30 2,22 2,10" stroke="url(#logoGrad)" stroke-width="1.5" fill="none"/>
+          <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" fill="url(#logoGrad)" opacity="0.3"/>
+          <circle cx="16" cy="16" r="3" fill="url(#logoGrad)"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00f5c4"/>
+              <stop offset="100%" stop-color="#7b2ff7"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">NexusAI</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#cta">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost btn-sm">Sign In</button>
+        <button class="btn btn-primary btn-sm">Get Started</button>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav-mobile" id="navMobile" aria-hidden="true">
+      <nav>
+        <a href="#features" class="nav-mobile-link">Features</a>
+        <a href="#about" class="nav-mobile-link">About</a>
+        <a href="#cta" class="nav-mobile-link">Pricing</a>
+        <div class="nav-mobile-actions">
+          <button class="btn btn-ghost">Sign In</button>
+          <button class="btn btn-primary">Get Started</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <!-- Three.js canvas -->
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+
+      <!-- Particle overlay -->
+      <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+      <!-- Glow orbs (CSS) -->
+      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Next-Gen AI Platform</span>
+        </div>
+
+        <h1 class="hero-heading">
+          <span class="hero-line" id="heroLine1">Intelligence</span>
+          <span class="hero-line hero-line-accent" id="heroLine2">Evolved</span>
+        </h1>
+
+        <p class="hero-sub" id="heroSub">
+          NexusAI transforms complex data into decisive action.
+          Build, deploy, and scale intelligent systems at the speed of thought.
+        </p>
+
+        <div class="hero-actions" id="heroActions">
+          <button class="btn btn-primary btn-lg btn-glow">
+            <i data-lucide="zap" width="18" height="18"></i>
+            Start Building Free
+          </button>
+          <button class="btn btn-ghost btn-lg">
+            <i data-lucide="play-circle" width="18" height="18"></i>
+            Watch Demo
+          </button>
+        </div>
+
+        <div class="hero-stats" id="heroStats">
+          <div class="hero-stat">
+            <span class="stat-num" data-count="99.9">0</span><span class="stat-unit">%</span>
+            <span class="stat-label">Uptime SLA</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-num" data-count="50">0</span><span class="stat-unit">ms</span>
+            <span class="stat-label">Avg Latency</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-num" data-count="2">0</span><span class="stat-unit">M+</span>
+            <span class="stat-label">API Calls / Day</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header reveal-fade">
+          <span class="section-tag">Core Capabilities</span>
+          <h2 class="section-title">Built for the builders<br>of tomorrow</h2>
+          <p class="section-sub">Every feature engineered to give you an unfair advantage.</p>
+        </div>
+
+        <div class="features-grid">
+
+          <!-- Large card -->
+          <article class="feature-card feature-card-large reveal-scale" data-delay="0">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrap">
+              <i data-lucide="brain" class="feature-icon"></i>
+            </div>
+            <h3>Neural Reasoning Engine</h3>
+            <p>Multi-modal reasoning across text, code, and structured data. Chain complex inference steps with sub-50ms response times.</p>
+            <div class="feature-visual">
+              <div class="neural-lines" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <a href="#" class="feature-link">
+              Explore engine <i data-lucide="arrow-right" width="14" height="14"></i>
+            </a>
+          </article>
+
+          <!-- Standard cards -->
+          <article class="feature-card reveal-scale" data-delay="100">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrap">
+              <i data-lucide="shield-check" class="feature-icon"></i>
+            </div>
+            <h3>Enterprise Security</h3>
+            <p>SOC2 Type II, GDPR-compliant. End-to-end encrypted with zero data retention on inference.</p>
+            <a href="#" class="feature-link">
+              Learn more <i data-lucide="arrow-right" width="14" height="14"></i>
+            </a>
+          </article>
+
+          <article class="feature-card reveal-scale" data-delay="150">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrap">
+              <i data-lucide="git-branch" class="feature-icon"></i>
+            </div>
+            <h3>Agentic Workflows</h3>
+            <p>Build autonomous agents that plan, reason, and execute multi-step tasks without human-in-the-loop.</p>
+            <a href="#" class="feature-link">
+              Learn more <i data-lucide="arrow-right" width="14" height="14"></i>
+            </a>
+          </article>
+
+          <article class="feature-card reveal-scale" data-delay="200">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrap">
+              <i data-lucide="layers" class="feature-icon"></i>
+            </div>
+            <h3>Model Fine-Tuning</h3>
+            <p>Fine-tune foundation models on proprietary data. Deploy custom checkpoints with a single API call.</p>
+            <a href="#" class="feature-link">
+              Learn more <i data-lucide="arrow-right" width="14" height="14"></i>
+            </a>
+          </article>
+
+          <!-- Wide card -->
+          <article class="feature-card feature-card-wide reveal-scale" data-delay="250">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrap">
+              <i data-lucide="activity" class="feature-icon"></i>
+            </div>
+            <h3>Real-Time Observability</h3>
+            <p>End-to-end visibility into every inference call. Latency heatmaps, token usage analytics, and anomaly detection — live.</p>
+            <div class="feature-chart-preview" aria-hidden="true">
+              <div class="chart-bar" style="--h:40%"></div>
+              <div class="chart-bar" style="--h:65%"></div>
+              <div class="chart-bar" style="--h:30%"></div>
+              <div class="chart-bar" style="--h:80%"></div>
+              <div class="chart-bar" style="--h:55%"></div>
+              <div class="chart-bar" style="--h:90%"></div>
+              <div class="chart-bar" style="--h:70%"></div>
+              <div class="chart-bar" style="--h:45%"></div>
+            </div>
+            <a href="#" class="feature-link">
+              View dashboard <i data-lucide="arrow-right" width="14" height="14"></i>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="about-visual reveal-scale">
+          <div class="about-3d-wrap" id="about3dWrap">
+            <div class="about-rings" aria-hidden="true">
+              <div class="ring ring-1"></div>
+              <div class="ring ring-2"></div>
+              <div class="ring ring-3"></div>
+            </div>
+            <div class="about-core">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                <polygon points="40,5 75,22.5 75,57.5 40,75 5,57.5 5,22.5" stroke="url(#aboutGrad)" stroke-width="1" fill="none"/>
+                <polygon points="40,15 65,27.5 65,52.5 40,65 15,52.5 15,27.5" stroke="url(#aboutGrad)" stroke-width="0.8" fill="url(#aboutFill)"/>
+                <circle cx="40" cy="40" r="10" fill="url(#aboutGrad)" opacity="0.8"/>
+                <defs>
+                  <linearGradient id="aboutGrad" x1="5" y1="5" x2="75" y2="75" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#00f5c4"/>
+                    <stop offset="100%" stop-color="#7b2ff7"/>
+                  </linearGradient>
+                  <linearGradient id="aboutFill" x1="5" y1="5" x2="75" y2="75" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#00f5c4" stop-opacity="0.05"/>
+                    <stop offset="100%" stop-color="#7b2ff7" stop-opacity="0.05"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="section-tag reveal-fade">Our Mission</span>
+          <h2 class="section-title reveal-fade" data-delay="100">Accelerating human potential with machine intelligence</h2>
+          <p class="about-body reveal-fade" data-delay="200">
+            NexusAI was founded on a simple belief: the most powerful AI systems should be accessible to every developer, every team, every vision. We build infrastructure that scales from a single prototype to billions of inferences.
+          </p>
+          <div class="about-pillars reveal-fade" data-delay="300">
+            <div class="pillar">
+              <i data-lucide="cpu" class="pillar-icon"></i>
+              <div>
+                <strong>Compute-Efficient</strong>
+                <span>30% less compute per token vs. industry average</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <i data-lucide="globe" class="pillar-icon"></i>
+              <div>
+                <strong>Global Edge Network</strong>
+                <span>47 PoPs across 6 continents for ultra-low latency</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <i data-lucide="lock" class="pillar-icon"></i>
+              <div>
+                <strong>Privacy-First</strong>
+                <span>Your data never trains our models. Period.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section" id="cta">
+      <div class="cta-bg" aria-hidden="true">
+        <div class="cta-mesh"></div>
+      </div>
+      <div class="container cta-inner">
+        <div class="cta-badge reveal-fade">
+          <i data-lucide="sparkles" width="14" height="14"></i>
+          <span>Start free, scale when ready</span>
+        </div>
+        <h2 class="cta-title reveal-fade" data-delay="100">
+          Ready to build<br>the impossible?
+        </h2>
+        <p class="cta-sub reveal-fade" data-delay="200">
+          Join 12,000+ developers and enterprises who ship faster with NexusAI.
+          No credit card required.
+        </p>
+        <div class="cta-actions reveal-fade" data-delay="300">
+          <button class="btn btn-primary btn-xl btn-glow">
+            <i data-lucide="rocket" width="20" height="20"></i>
+            Launch Your Project
+          </button>
+          <button class="btn btn-outline btn-xl">
+            <i data-lucide="book-open" width="20" height="20"></i>
+            Read the Docs
+          </button>
+        </div>
+        <div class="cta-social-proof reveal-fade" data-delay="400">
+          <div class="avatar-stack" aria-hidden="true">
+            <div class="avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">A</div>
+            <div class="avatar" style="background: linear-gradient(135deg,#3b82f6,#8b5cf6)">J</div>
+            <div class="avatar" style="background: linear-gradient(135deg,#10b981,#06b6d4)">M</div>
+            <div class="avatar" style="background: linear-gradient(135deg,#ec4899,#f97316)">S</div>
+          </div>
+          <span>Trusted by teams at <strong>Stripe</strong>, <strong>Vercel</strong>, <strong>Notion</strong></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" aria-label="NexusAI">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <polygon points="16,2 30,10 30,22 16,30 2,22 2,10" stroke="url(#footerGrad)" stroke-width="1.5" fill="none"/>
+            <circle cx="16" cy="16" r="3" fill="url(#footerGrad)"/>
+            <defs>
+              <linearGradient id="footerGrad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00f5c4"/>
+                <stop offset="100%" stop-color="#7b2ff7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="nav-logo-text">NexusAI</span>
+        </a>
+        <p>Intelligence Evolved.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#">Features</a>
+          <a href="#">Pricing</a>
+          <a href="#">Changelog</a>
+          <a href="#">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>Developers</h4>
+          <a href="#">Docs</a>
+          <a href="#">API Reference</a>
+          <a href="#">SDKs</a>
+          <a href="#">Status</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>&copy; 2026 NexusAI, Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js" defer></script>
+</body>
+</html>
